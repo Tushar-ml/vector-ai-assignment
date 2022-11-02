@@ -18,11 +18,6 @@ timeout = 20
 
 class GPubSubClient:
 
-    @staticmethod
-    def consumer_callback(message):
-        print(f"Received {message.data}.")
-        message.ack()
-
     # producer function to push a message to a topic
 
     @staticmethod
@@ -35,13 +30,13 @@ class GPubSubClient:
 
     # consumer function to consume messages from a topics for a given timeout period
     @staticmethod
-    def consume_message(topic):
+    def consume_message(topic, callback_function):
         subscriber = pubsub_v1.SubscriberClient()
         subscription_path = subscriber.subscription_path(
             PUB_SUB_PROJECT, topic)
         print(f"Listening for messages on {subscription_path}..\n")
         streaming_pull_future = subscriber.subscribe(
-            subscription_path, callback=GPubSubClient.consumer_callback)
+            subscription_path, callback=callback_function)
 
         # Wrap subscriber in a 'with' block to automatically call close() when done.
         with subscriber:

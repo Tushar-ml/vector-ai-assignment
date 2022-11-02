@@ -29,6 +29,7 @@ This section deals with implementation of streaming message brokers like Apache 
 
    - consume_message: It is a subscriber module of your broker
      - topic: topic/subscription from which it needs to consume message
+     - callback_function: What to do with message consumed, see in `main.py` a lambda function with print statement for your reference. Like by defining callback function we can send message to other API, or store anywhere.
 
    Take an hint from `kafka_broker.py` and `google_pubsub_broker.py`
 
