@@ -11,9 +11,10 @@ class KafkaClient:
 
         if not isinstance(messages, list):
             raise TypeError
-            
+
         producer = KafkaProducer(bootstrap_servers=self.bootstrap_server)
         for message in messages:
+            message = str(message)
             producer.send(topic, bytes(message,'utf-8'))
             print(f'Message: {message}')
     
