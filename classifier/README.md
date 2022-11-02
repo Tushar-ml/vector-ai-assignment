@@ -38,10 +38,4 @@ This section contains the instructions of the file structure and flow of the cod
 
 ## How to test the code
 
-Using the `predict_model` function in `model.py` you can get the predictions.
-
-- loaded_model is required
-- data with proper shape of format eg:(length_data, 224,224,3)
-- n_classes : No of Classes
-
-See example in part3 section
+Run `python3 train.py` in your terminal with all configs.

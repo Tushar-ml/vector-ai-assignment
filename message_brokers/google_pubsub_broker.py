@@ -9,9 +9,7 @@ os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "./credentials.json"
 
 
 # GCP topic, project & subscription ids
-PUB_SUB_TOPIC = "test_topic"
 PUB_SUB_PROJECT = "qwiklabs-gcp-04-270b1b26316a"
-PUB_SUB_SUBSCRIPTION = "test_subs"
 
 timeout = 20
 # callback function for processing consumed payloads
@@ -37,10 +35,10 @@ class GPubSubClient:
 
     # consumer function to consume messages from a topics for a given timeout period
     @staticmethod
-    def consume_message():
+    def consume_message(topic):
         subscriber = pubsub_v1.SubscriberClient()
         subscription_path = subscriber.subscription_path(
-            PUB_SUB_PROJECT, PUB_SUB_SUBSCRIPTION)
+            PUB_SUB_PROJECT, topic)
         print(f"Listening for messages on {subscription_path}..\n")
         streaming_pull_future = subscriber.subscribe(
             subscription_path, callback=GPubSubClient.consumer_callback)
