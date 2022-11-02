@@ -11,4 +11,4 @@ def stream_model_api(message):
     message = json.dumps({"data": message})
     response = requests.post('http://localhost:8000/predict',
                              headers=headers, data=message)
-    print(response)
+    print(response.text)
