@@ -3,14 +3,15 @@ from concurrent.futures import TimeoutError
 from google.cloud import pubsub_v1
 import json
 import os
-# Enter your credentials.json for GCP Project
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "YYYY.json"
+
+# Enter your credentials.json for GCP Project Service Account
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "./credentials.json"
 
 
 # GCP topic, project & subscription ids
-PUB_SUB_TOPIC = "my-python-topic"
-PUB_SUB_PROJECT = "XXX"
-PUB_SUB_SUBSCRIPTION = "my-python-topic-sub"
+PUB_SUB_TOPIC = "test_topic"
+PUB_SUB_PROJECT = "qwiklabs-gcp-04-270b1b26316a"
+PUB_SUB_SUBSCRIPTION = "test_subs"
 
 timeout = 20
 # callback function for processing consumed payloads
