@@ -16,7 +16,7 @@ This section deals with implementation of streaming message brokers like Apache 
 
 - **all_brokers.py** : This file contains all imports of different broker clients, so that we just based on string like 'kafka' and 'google_cloud_pub_sub' we can import whole implementation in our `main.py` file.
 
-- **main.py** : This file will be the interface for the message broker section. Just assign what broker you need to `broker_name` variable. In the back-end it is prepared for you to serve. No need to change anything and send anything with `broker_client.send_message('topic',message)`
+- **test.py** : This file will be the interface for the message broker section. Just assign what broker you need to `broker_name` variable. In the back-end it is prepared for you to serve. No need to change anything and send anything with `broker_client.send_message('topic',message)`
 
 ## How to add custom broker
 
@@ -29,7 +29,7 @@ This section deals with implementation of streaming message brokers like Apache 
 
    - consume_message: It is a subscriber module of your broker
      - topic: topic/subscription from which it needs to consume message
-     - callback_function: What to do with message consumed, see in `main.py` a lambda function with print statement for your reference. Like by defining callback function we can send message to other API, or store anywhere.
+     - callback_function: What to do with message consumed, see in `test.py` a lambda function with print statement for your reference. Like by defining callback function we can send message to other API, or store anywhere.
 
    Take an hint from `kafka_broker.py` and `google_pubsub_broker.py`
 
