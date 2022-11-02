@@ -1,6 +1,5 @@
-from concurrent.futures import process
-from preprocessing import Preprocess_Image
-from model import generate_model
+from classifier.preprocessing import Preprocess_Image
+from classifier.model import generate_model
 from keras.datasets import fashion_mnist
 import os
 
